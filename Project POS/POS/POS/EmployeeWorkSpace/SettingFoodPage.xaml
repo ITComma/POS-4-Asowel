@@ -1,0 +1,142 @@
+﻿<Page x:Class="POS.EmployeeWorkSpace.SettingFoodPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      Background="{DynamicResource MaterialDesignPaper}"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:POS.EmployeeWorkSpace"
+      mc:Ignorable="d"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="SettingFood"
+      Height="610"
+      Width="1024">
+
+    <Grid>
+        <materialDesign:ColorZone Margin="0,0,500,0"
+                                  Padding="16"
+                                  materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                                  CornerRadius="3"
+                                  Mode="PrimaryDark"
+                                  Height="46">
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock Margin="16,0,0,0"
+                           VerticalAlignment="Center"
+                           FontWeight="Bold"
+                           FontSize="16">Food List</TextBlock>
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <ListView Name="lvData"
+                  Width="514"
+                  VerticalAlignment="Top"
+                  HorizontalAlignment="Left"
+                  Background="#FFED5C5C"
+                  Foreground="White"
+                  FontWeight="Bold"
+                  Margin="10,63,0,0"
+                  SelectionChanged="lvData_SelectionChanged">
+            <ListView.View>
+                <GridView x:Name="gvShowDetails">
+                    <GridViewColumn Header="ID"
+                                    Width="250"
+                                    DisplayMemberBinding="{Binding Product_id}" />
+                    <GridViewColumn Header="Name"
+                                    Width="200"
+                                    DisplayMemberBinding="{Binding Name}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <materialDesign:ColorZone Margin="541,0,0,0"
+                                  Padding="16"
+                                  materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                                  CornerRadius="3"
+                                  Mode="PrimaryDark"
+                                  VerticalAlignment="Top"
+                                  HorizontalAlignment="Left"
+                                  Width="483"
+                                  Height="46">
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock Margin="16,0,0,0"
+                           VerticalAlignment="Center"><Run Text="Food information" /></TextBlock>
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <StackPanel HorizontalAlignment="Left"
+                    Height="535"
+                    Margin="541,64,0,0"
+                    DataContext="{Binding  SelectedItem,ElementName=lvData}"
+                    VerticalAlignment="Top"
+                    Width="483">
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontSize"
+                            Value="18" />
+                    <Setter Property="HorizontalAlignment"
+                            Value="Center" />
+                    <Setter Property="VerticalAlignment"
+                            Value="Center" />
+                    <Setter Property="Width"
+                            Value="150" />
+                    <Setter Property="Height"
+                            Value="25" />
+                    <Setter Property="Foreground"
+                            Value="White" />
+                </Style>
+            </StackPanel.Resources>
+            <StackPanel Orientation="Horizontal"
+                        Margin="10">
+                <TextBlock Text="ID" />
+                <TextBlock x:Name="txtID"
+                           Width="200" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="10">
+                <TextBlock Text="Name" />
+                <TextBlock x:Name="txtName"
+                           IsEnabled="False"
+                           Width="200"
+                           Foreground="White" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="10">
+                <TextBlock Text="Price" />
+                <TextBlock x:Name="txtPrice"
+                           Width="200"
+                           IsEnabled="False"
+                           Foreground="White"
+                           PreviewTextInput="txtPrice_PreviewTextInput" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="10">
+                <TextBlock Text="Promotion" />
+                <ComboBox Foreground="White"
+                          x:Name="cbopromotion"
+                          IsEditable="False"
+                          IsEnabled="False"
+                          Width="60">
+                </ComboBox>
+                <TextBlock x:Name="textBlock"
+                           HorizontalAlignment="Stretch"
+                           TextWrapping="Wrap"
+                           Text="%"
+                           VerticalAlignment="Stretch"
+                           Width="19"
+                           Height="24"
+                           Margin="10,0,0,0" />
+            </StackPanel>
+            <Button x:Name="bntUpdate"
+                    Content="Update"
+                    IsEnabled="False"
+                    Height="44"
+                    Margin="10,0,0,0"
+                    Click="bntUpdate_Click"
+                    HorizontalAlignment="Left"
+                    Width="98" />
+        </StackPanel>
+        <Image x:Name="image"
+               HorizontalAlignment="Left"
+               Height="231"
+               Margin="832,64,0,0"
+               VerticalAlignment="Top"
+               Width="182" />
+
+    </Grid>
+</Page>

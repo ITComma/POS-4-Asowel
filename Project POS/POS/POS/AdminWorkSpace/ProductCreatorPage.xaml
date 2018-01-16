@@ -1,0 +1,317 @@
+﻿<Page x:Class="POS.AdminWorkSpace.ProductCreatorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      Background="{DynamicResource MaterialDesignPaper}"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:POS.EmployeeWorkSpace"
+      mc:Ignorable="d"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="ProductPage"
+      Height="660"
+      Width="1366">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.16*" />
+            <ColumnDefinition Width="0.84*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.14*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="0.8*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.RowSpan="1">
+                <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                                          CornerRadius="3"
+                                          Mode="PrimaryDark"
+                                          Height="46">
+                    <StackPanel  Orientation="Horizontal"
+                                 Margin="20,0,0,0">
+                        <TextBlock VerticalAlignment="Center"
+                                   FontSize="16"
+                                   FontWeight="Bold">Available Ingredient</TextBlock>
+                    </StackPanel>
+                </materialDesign:ColorZone>
+                <ListView Name="lvAvaibleIngredient"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Left"
+                          Background="#FFED5C5C"
+                          Foreground="White"
+                          FontWeight="Bold"
+                          Margin="0,50,0,-336"
+                          SelectionChanged="LvAvaibleIngredient_OnSelectionChanged"
+                          Width="840"
+                          Height="334">
+                    <ListView.View>
+                        <GridView x:Name="gvShowDetails">
+                            <GridViewColumn Header="ID"
+                                            Width="100"
+                                            DisplayMemberBinding="{Binding IgdId}" />
+                            <GridViewColumn Header="Name"
+                                            Width="200"
+                                            DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Header="Info"
+                                            Width="150"
+                                            DisplayMemberBinding="{Binding Info}" />
+                            <GridViewColumn Header="User for"
+                                            Width="100"
+                                            DisplayMemberBinding="{Binding Usefor}" />
+                            <GridViewColumn Header="Type"
+                                            Width="100"
+                                            DisplayMemberBinding="{Binding IgdType}" />
+                            <GridViewColumn Header="UnitBuy"
+                                            Width="100"
+                                            DisplayMemberBinding="{Binding UnitBuy}" />
+
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                                          CornerRadius="3"
+                                          Mode="PrimaryDark"
+                                          Height="46">
+                    <StackPanel  Orientation="Horizontal"
+                                 Margin="20,0,0,0">
+                        <TextBlock VerticalAlignment="Center"
+                                   FontSize="16"
+                                   FontWeight="Bold">Product Details</TextBlock>
+                    </StackPanel>
+                </materialDesign:ColorZone>
+                <ListView Name="lvDetails"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Left"
+                          Background="#FFED5C5C"
+                          Foreground="White"
+                          FontWeight="Bold"
+                          Margin="0,50,0,0"
+                          Height="222"
+                          Width="840">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ID"
+                                            Width="120"
+                                            DisplayMemberBinding="{Binding ProDe.PdetailId}" />
+                            <GridViewColumn Header="Product ID"
+                                            Width="0"
+                                            DisplayMemberBinding="{Binding ProDe.ProductId}" />
+                            <GridViewColumn Header="Name"
+                                            Width="200"
+                                            DisplayMemberBinding="{Binding Ingre.Name}" />
+                            <GridViewColumn Header="IgdId"
+                                            Width="120"
+                                            DisplayMemberBinding="{Binding ProDe.IgdId}" />
+                            <GridViewColumn Header="Quantity"
+                                            Width="120">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox x:Name="txtQuantity"
+                                                 Text="{Binding ProDe.Quan}"
+                                                 Width="100"
+                                                 PreviewTextInput="NumberOnly_PreviewTextInput"
+                                                 TextChanged="txtQuantity_TextChanged" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="UnitUse"
+                                            Width="170">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <ComboBox x:Name="cboUnitUse"
+                                                      Background="White"
+                                                      Width="80"
+                                                      Foreground="Black"
+                                                      IsReadOnly="True"
+                                                      ItemsSource="{Binding UnitUseT}"
+                                                      SelectedItem="{Binding ProDe.UnitUse}"
+                                                      SelectionChanged="cboUnitUse_SelectionChanged"
+                                                      Margin="0,0,10,0" />
+                                            <Button x:Name="bntDeleteItem"
+                                                    Width="45"
+                                                    BorderBrush="DarkGray"
+                                                    Background="DarkGray"
+                                                    Margin="0 0 0 0"
+                                                    Content="x"
+                                                    Click="BntDeleteItem_OnClick" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid Margin="10,0,0,0">
+                <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                                          CornerRadius="3"
+                                          Mode="PrimaryDark"
+                                          Height="46">
+                    <StackPanel  Orientation="Horizontal"
+                                 Margin="20,0,0,0">
+                        <TextBlock VerticalAlignment="Center"
+                                   FontSize="16"
+                                   FontWeight="Bold"><Run Text="Information"
+                                                          FontWeight="Bold"
+                                                          FontSize="16" /></TextBlock>
+                    </StackPanel>
+                </materialDesign:ColorZone>
+                <StackPanel Margin="10,60,0,0">
+                    <StackPanel.Resources>
+                        <Style TargetType="TextBlock"
+                               x:Key="TextBlockLabel">
+                            <Setter Property="FontSize"
+                                    Value="18" />
+                            <Setter Property="Foreground"
+                                    Value="#FFFFEDBC" />
+                            <Setter Property="FontWeight"
+                                    Value="Bold" />
+                            <Setter Property="Width"
+                                    Value="200" />
+                            <Setter Property="HorizontalAlignment"
+                                    Value="Center" />
+                            <Setter Property="VerticalAlignment"
+                                    Value="Center" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,20,0,0">
+                        <TextBlock Text="Name: "
+                                   Style="{StaticResource ResourceKey=TextBlockLabel}"
+                                   Margin="0,0,20,0" />
+                        <TextBox x:Name="txtName"
+                                 FontSize="18"
+                                 Foreground="White"
+                                 Width="215"
+                                 Margin="0,0,100,0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,20,0,0">
+                        <TextBlock Text="Information: "
+                                   Margin="0,0,20,0"
+                                   Style="{StaticResource ResourceKey=TextBlockLabel}" />
+                        <TextBox MaxWidth="300"
+                                 Foreground="White"
+                                 x:Name="txtInfo"
+                                 Height="70"
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Center"
+                                 materialDesign:HintAssist.Hint=""
+                                 AcceptsReturn="True"
+                                 FontSize="18"
+                                 SpellCheck.IsEnabled="True"
+                                 TextWrapping="Wrap"
+                                 VerticalScrollBarVisibility="Auto"
+                                 Width="215"
+                                 Margin="0,0,100,0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,20,0,0">
+                        <TextBlock Text="Type: "
+                                   Margin="0,0,20,0"
+                                   Style="{StaticResource ResourceKey=TextBlockLabel}" />
+                        <ComboBox x:Name="cboType"
+                                  FontSize="18"
+                                  Foreground="White"
+                                  Width="215"
+                                  Margin="0,0,100,0"
+                                  SelectionChanged="cboType_SelectionChanged"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,20,0,0">
+                        <TextBlock Text="Image Link: "
+                                   Margin="0,0,20,0"
+                                   Style="{StaticResource ResourceKey=TextBlockLabel}" />
+                        <TextBox x:Name="txtImageName"
+                                 FontSize="18"
+                                 Foreground="White"
+                                 Width="215"
+                                 IsEnabled="False"/>
+                        <Button x:Name="btnLinkImg"
+                                FontSize="18"
+                                Foreground="White"
+                                Margin="0,0,100,0"
+                                Click="btnLinkImg_Click">
+                            <materialDesign:PackIcon Kind="FolderImage"
+                                                     Foreground="Black" />
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,20,0,0">
+                        <TextBlock Text="Discount: "
+                                   Margin="0,0,20,0"
+                                   Style="{StaticResource ResourceKey=TextBlockLabel}" />
+                        <TextBox x:Name="txtDiscount"
+                                 FontSize="18"
+                                 Foreground="White"
+                                 Width="215"
+                                 Margin="0,0,100,0"
+                                 IsEnabled="False"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,20,0,0">
+                        <TextBlock Text="Standard Status: "
+                                   Margin="0,0,20,0"
+                                   Style="{StaticResource ResourceKey=TextBlockLabel}" />
+                        <ComboBox x:Name="cboStatus"
+                                  FontSize="18"
+                                  Foreground="White"
+                                  Width="215"
+                                  Margin="0,0,100,0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,20,0,0">
+                        <TextBlock Text="Suggest Price(kVND): "
+                                   Margin="0,0,20,0"
+                                   Style="{StaticResource ResourceKey=TextBlockLabel}" />
+                        <TextBox x:Name="txtSusggestPrice"
+                                 IsEnabled="False"
+                                 FontSize="18"
+                                 Foreground="White"
+                                 Width="215"
+                                 Margin="0,0,100,0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,20,0,0">
+                        <TextBlock Text="Price(kVND): "
+                                   Margin="0,0,20,0"
+                                   Style="{StaticResource ResourceKey=TextBlockLabel}" />
+                        <TextBox x:Name="txtPrice"
+                                 FontSize="18"
+                                 Foreground="White"
+                                 Width="220"
+                                 Margin="0,0,100,0"
+                                 PreviewTextInput="NumberOnly_PreviewTextInput"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,20,0,0"
+                                HorizontalAlignment="Center">
+                        <Button x:Name="btnAdd"
+                                Content="Add"
+                                Height="46"
+                                FontWeight="Bold"
+                                FontSize="20"
+                                Margin="0,0,50,0"
+                                Width="100"
+                                Click="btnAdd_Click"/>
+                        <Button x:Name="btnClear"
+                                Content="Clear"
+                                FontWeight="Bold"
+                                FontSize="20"
+                                Height="46"
+                                Width="100"
+                                Click="btnClear_Click"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

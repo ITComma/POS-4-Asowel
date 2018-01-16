@@ -1,0 +1,298 @@
+﻿<Window x:Class="POS.AdminWorkSpace.EmployeeAddOrUpdateDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Background="{DynamicResource MaterialDesignPaper}"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POS"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Employee Add Or Update"
+        Height="513.769"
+        Width="956.667">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}"
+               x:Key="TextBlockLabel">
+            <Setter Property="FontSize"
+                    Value="18" />
+            <Setter Property="Foreground"
+                    Value="#FFFFEDBC" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="Width"
+                    Value="120" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="EmployeeInfo">
+        <materialDesign:ColorZone Mode="PrimaryDark"
+                                  Height="44">
+            <StackPanel Orientation="Horizontal"
+                        Margin="20,0,0,0">
+                <TextBlock VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           FontWeight="Bold"
+                           FontSize="18">Personal Infomation</TextBlock>
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <StackPanel Orientation="Vertical"
+                    Margin="0,49,0,0">
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock"
+                       x:Key="TextBlockLabel">
+                    <Setter Property="FontSize"
+                            Value="18" />
+                    <Setter Property="Foreground"
+                            Value="#FFFFEDBC" />
+                    <Setter Property="FontWeight"
+                            Value="Bold" />
+                    <Setter Property="Width"
+                            Value="160" />
+                    <Setter Property="HorizontalAlignment"
+                            Value="Center" />
+                    <Setter Property="VerticalAlignment"
+                            Value="Center" />
+                </Style>
+            </StackPanel.Resources>
+            <StackPanel  Orientation="Horizontal"
+                         Margin="15,20,0,0">
+                <TextBlock Text="Username:"
+                           Style="{StaticResource ResourceKey=TextBlockLabel}" />
+                <TextBox x:Name="txtUsername"
+                         FontSize="18"
+                         Foreground="White"
+                         Width="215"
+                         Text=""
+                         TextChanged="TxtUsername_OnTextChanged" />
+                <materialDesign:PackIcon Margin="10,0,0,0"
+                                         x:Name="IcUserNameValid"
+                                         Width="30"
+                                         Height="30"
+                                         Kind="Alert"
+                                         Foreground="#FFC13E17"
+                                         Visibility="Hidden" />
+                <TextBlock Text="Password: "
+                           Margin="90,0,0,0"
+                           Style="{StaticResource ResourceKey=TextBlockLabel}" />
+                <PasswordBox x:Name="txtPass"
+                             Width="215"
+                             FontSize="18"
+                             Foreground="White"
+                             PasswordChanged="TxtPass_OnPasswordChanged" />
+                <materialDesign:PackIcon Margin="10,0,0,0"
+                                         x:Name="IcPassValid"
+                                         Width="30"
+                                         Height="30"
+                                         Kind="Alert"
+                                         Foreground="#FFC13E17"
+                                         Visibility="Hidden" />
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal"
+                         Margin="15,20,0,0">
+                <TextBlock Text="Name: "
+                           Style="{StaticResource ResourceKey=TextBlockLabel}" />
+                <TextBox x:Name="txtName"
+                         FontSize="18"
+                         Foreground="White"
+                         Width="215"
+                         TextChanged="TxtName_OnTextChanged" />
+                <materialDesign:PackIcon Margin="10,0,0,0"
+                                         x:Name="IcNameValid"
+                                         Width="30"
+                                         Height="30"
+                                         Kind="Alert"
+                                         Foreground="#FFC13E17"
+                                         Visibility="Hidden" />
+                <StackPanel  Orientation="Horizontal"
+                             Margin="90,0,0,0">
+                    <TextBlock x:Name="txbCon"
+                               Text="Confirm Password:"
+                               Style="{StaticResource ResourceKey=TextBlockLabel}" />
+                    <PasswordBox x:Name="txtCon"
+                                 Width="215"
+                                 FontSize="18"
+                                 Foreground="White"
+                                 PasswordChanged="TxtCon_OnPasswordChanged" />
+                    <materialDesign:PackIcon Margin="10,0,0,0"
+                                             x:Name="IcConfirmValid"
+                                             Width="30"
+                                             Height="30"
+                                             Kind="Alert"
+                                             Foreground="#FFC13E17"
+                                             Visibility="Hidden" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal"
+                         Margin="15,20,0,0">
+                <TextBlock Text="Employee Role:"
+                           Style="{StaticResource ResourceKey=TextBlockLabel}" />
+                <ComboBox x:Name="cboRole"
+                          Width="215"
+                          FontSize="18"
+                          Foreground="White" />
+                <StackPanel  Orientation="Horizontal"
+                             Margin="130,0,0,0">
+                    <TextBlock Text="Birth: "
+                               Style="{StaticResource ResourceKey=TextBlockLabel}" />
+                    <DatePicker x:Name="txtBirth"
+                                Width="215"
+                                FontSize="18"
+                                Foreground="White"
+                                HorizontalAlignment="Left"
+                                materialDesign:HintAssist.Hint="Pick Date"
+                                SelectedDateChanged="TxtBirth_OnSelectedDateChanged" />
+                    <materialDesign:PackIcon Margin="10,0,0,0"
+                                             x:Name="IcBirthValid"
+                                             Width="30"
+                                             Height="30"
+                                             Kind="Alert"
+                                             Foreground="#FFC13E17"
+                                             Visibility="Hidden" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal"
+                         Margin="15,20,0,0">
+                <TextBlock Text="Address: "
+                           Style="{StaticResource ResourceKey=TextBlockLabel}" />
+                <TextBox MaxWidth="300"
+                         Foreground="White"
+                         x:Name="txtAddress"
+                         Height="70"
+                         VerticalAlignment="Center"
+                         materialDesign:HintAssist.Hint=""
+                         AcceptsReturn="True"
+                         FontSize="18"
+                         SpellCheck.IsEnabled="True"
+                         TextWrapping="Wrap"
+                         VerticalScrollBarVisibility="Auto"
+                         Width="215"
+                         TextChanged="TxtAddress_OnTextChanged" />
+                <materialDesign:PackIcon Margin="10,0,0,0"
+                                         x:Name="IcAddrValid"
+                                         Width="30"
+                                         Height="30"
+                                         Kind="Alert"
+                                         Foreground="#FFC13E17"
+                                         Visibility="Hidden" />
+                <StackPanel VerticalAlignment="Center"
+                            Margin="90,0,0,0">
+                    <StackPanel  Orientation="Horizontal">
+                        <materialDesign:PackIcon Foreground="{Binding BorderBrush, ElementName=PhoneTextBox}"
+                                                 Kind="Phone"
+                                                 Width="30"
+                                                 Height="30" />
+                        <TextBox x:Name="txtPhone"
+                                 Width="215"
+                                 Foreground="White"
+                                 FontSize="18"
+                                 Margin="130,0,0,0"
+                                 PreviewTextInput="NumberOnly_PreviewTextInput"
+                                 materialDesign:TransitionAssist.DisableTransitions="True"
+                                 TextChanged="TxtPhone_OnTextChanged" />
+                        <materialDesign:PackIcon Margin="10,0,0,0"
+                                                 x:Name="IcPhoneValid"
+                                                 Width="30"
+                                                 Height="30"
+                                                 Kind="Alert"
+                                                 Foreground="#FFC13E17"
+                                                 Visibility="Hidden" />
+                    </StackPanel>
+
+                    <StackPanel  Orientation="Horizontal">
+                        <materialDesign:PackIcon Foreground="{Binding BorderBrush, ElementName=PhoneTextBox}"
+                                                 Kind="MailRu"
+                                                 Width="30"
+                                                 Height="30" />
+                        <TextBox x:Name="txtMail"
+                                 Width="215"
+                                 FontSize="18"
+                                 Foreground="White"
+                                 Margin="130,0,0,0"
+                                 TextChanged="TxtMail_OnTextChanged" />
+                        <materialDesign:PackIcon Margin="10,0,0,0"
+                                                 x:Name="IcMailValid"
+                                                 Width="30"
+                                                 Height="30"
+                                                 Kind="Alert"
+                                                 Foreground="#FFC13E17"
+                                                 Visibility="Hidden" />
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal"
+                         Margin="15,20,0,0">
+                <TextBlock Text="Start Day: "
+                           Style="{StaticResource ResourceKey=TextBlockLabel}" />
+                <DatePicker x:Name="txtStartDay"
+                            Width="215"
+                            FontSize="18"
+                            Foreground="White"
+                            HorizontalAlignment="Left"
+                            materialDesign:HintAssist.Hint="Pick Date" />
+                <TextBlock Text="Hour wage: "
+                           Margin="130,0,0,0"
+                           Style="{StaticResource ResourceKey=TextBlockLabel}" />
+                <TextBox x:Name="txtHour_wage"
+                         Foreground="White"
+                         FontSize="18"
+                         Width="170"
+                         PreviewTextInput="NumberOnly_PreviewTextInput" />
+                <TextBlock Text="kVND"
+                           FontSize="18"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Foreground="White" />
+                <materialDesign:PackIcon Margin="10,0,0,0"
+                                         x:Name="IcHourWageValid"
+                                         Width="30"
+                                         Height="30"
+                                         Kind="Alert"
+                                         Foreground="#FFC13E17"
+                                         Visibility="Hidden" />
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal"
+                         Margin="15,20,0,0">
+                <TextBlock Text="Code: "
+                           Style="{StaticResource ResourceKey=TextBlockLabel}" />
+                <PasswordBox x:Name="txtCode"
+                             Width="215"
+                             PreviewTextInput="NumberOnly_PreviewTextInput"
+                             PasswordChanged="TxtCode_OnPasswordChanged"
+                             Style="{StaticResource {x:Type PasswordBox}}" />
+                <materialDesign:PackIcon Margin="10,0,0,0"
+                                         x:Name="IcCodeValid"
+                                         Width="30"
+                                         Height="30"
+                                         Kind="Alert"
+                                         Foreground="#FFC13E17"
+                                         Visibility="Hidden" />
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal"
+                         Margin="0,30,0,0"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center">
+                <Button x:Name="btnAddNew"
+                        Content="Save"
+                        Width="121"
+                        Height="Auto"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Margin="0,0,0,0"
+                        Click="btnAddNew_Click" />
+                <Button x:Name="btnCancel"
+                        Content="Cancel"
+                        Width="121"
+                        Height="Auto"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Margin="100,0,0,0"
+                        Click="btnCancel_Click" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,35 @@
+﻿<Page x:Class="POS.EmployeeWorkSpace.Entry"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:POS"
+      xmlns:Uc="clr-namespace:POS"
+      xmlns:employeeWorkSpace="clr-namespace:POS.EmployeeWorkSpace"
+      mc:Ignorable="d"
+      Background="{DynamicResource MaterialDesignPaper}"
+      Height="610"
+      Width="1024"
+      Title="Entry">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4.1*" />
+            <ColumnDefinition Width="2.9*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <employeeWorkSpace:UcMenu x:Name="ucMenu" HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      Width="600"
+                                      Height="600"
+                                      Margin="0,0,10,0"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <employeeWorkSpace:UcOder x:Name="ucOrder"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      Width="450"
+                                      Height="600"/>
+        </Grid>
+    </Grid>
+</Page>
