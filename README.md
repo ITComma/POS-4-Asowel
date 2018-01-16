@@ -32,7 +32,7 @@ Nền tảng trên Mobile và Web vẫn đang được lên kế hoạch
     - Nguyễn Hoàng Nam (main UI designer/creator, software event manipulator, data analysis)
     - Lê Đức Anh (main back-end developer, software event manipulator)
     
-    -**Team process**(in future):
+    -**Team process**(later):
       - Lưu Đức Trung (team leader, back-end/web service/cloud service architect)
       - Nguyễn Hoàng Nam (Mobile version developer)
       - Lê Đức Anh (WebApp version developer)
