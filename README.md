@@ -4,7 +4,7 @@
 
 
 **Main Feature:**
-Phần mềm quản lý nhà hàng (cung cấp các dịch vụ ăn uống, kho trữ, thống kê...)
+Restaurant management system (order, stock, statistic, restaurant management)
 
   o	Xây dựng phần mềm POS gồm các chức năng chính:
 
