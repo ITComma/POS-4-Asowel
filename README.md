@@ -66,7 +66,7 @@ Nền tảng trên Mobile và Web vẫn đang được lên kế hoạch
 
 ## Admin Workspace
 ![Start](https://github.com/ITComma/POS-4-Asowel/blob/master/documents/images/adminwsp_start.png)
-![Home](https://github.com/ITComma/POS-4-Asowel/blob/master/documents/images/adminwsp_floatbutton.png)
+![Home]https://github.com/ITComma/POS-4-Asowel/blob/master/documents/images/adminwsp_main.png)
 ![Float button](https://github.com/ITComma/POS-4-Asowel/blob/master/documents/images/adminwsp_floatbutton.png)
 ![Food statistic](https://github.com/ITComma/POS-4-Asowel/blob/master/documents/images/adminwsp_foodchart.png)
 ![Revenue statistic](https://github.com/ITComma/POS-4-Asowel/blob/master/documents/images/adminwsp_statistic.png)
