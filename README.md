@@ -49,8 +49,11 @@ Nền tảng trên Mobile và Web vẫn đang được lên kế hoạch
 # Figure:
 ## Login Window
 ![Startup](https://github.com/ITComma/POS-4-Asowel/blob/master/documents/images/startup.png)
+
 ![Login](https://github.com/ITComma/POS-4-Asowel/blob/master/documents/images/login.png)
+
 ![Employee Login](https://github.com/ITComma/POS-4-Asowel/blob/master/documents/images/emplogin.png)
+
 ![Admin Login](https://github.com/ITComma/POS-4-Asowel/blob/master/documents/images/adminlogin.png)
 
 ## Employee Workspace
